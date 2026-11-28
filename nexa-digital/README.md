@@ -21,7 +21,7 @@ No frameworks. No build tools. Just clean, production-ready code.
 - ♿ **Accessible** — semantic landmarks, skip link, visible focus, ARIA states, `prefers-reduced-motion` support
 - ✉️ **Validated contact form** — inline bilingual errors, honeypot spam trap, optional real backend
 - 🧭 **Scroll spy** — the current section is highlighted in the navbar
-- 🎨 **Themeable** — all colors & spacing driven by CSS variables (brand colors match the logo)
+- 🎨 **Themeable** — all colors & spacing driven by CSS variables (green / cream / red palette)
 - ⚡ **Zero dependencies** — no npm, no bundler, no framework
 
 ---

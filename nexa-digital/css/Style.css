@@ -12,33 +12,34 @@
 
 /* ==========================================================================
    1. DESIGN TOKENS
-   Brand colors are taken from the logo (cyan → blue).
+   Palette: #386641 · #6A994E · #A7C957 · #F2E8CF · #BC4749
    ========================================================================== */
 :root {
   /* Colors — Light theme */
-  --bg: #ffffff;
-  --bg-alt: #f5f8fc;
+  --bg: #fdfaf3;
+  --bg-alt: #f2e8cf;
   --surface: #ffffff;
-  --surface-2: #eef3f9;
-  --text: #0f172a;
-  --text-muted: #5b6b80;
-  --border: #e2e8f0;
+  --surface-2: #f6efdc;
+  --text: #1f2b1d;
+  --text-muted: #5a6650;
+  --border: #e4d9bb;
 
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-soft: rgba(37, 99, 235, 0.1);
-  --primary-rgb: 37, 99, 235;
-  --accent: #06b6d4;
-  --danger: #dc2626;
-  --success: #059669;
+  --primary: #386641;
+  --primary-hover: #2b5032;
+  --primary-soft: rgba(56, 102, 65, 0.1);
+  --primary-rgb: 56, 102, 65;
+  --on-primary: #ffffff;
+  --accent: #6a994e;
+  --danger: #bc4749;
+  --success: #386641;
 
-  --brand-cyan: #00d4ff;
-  --brand-blue: #1e6be0;
-  --gradient: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+  --brand-light: #a7c957;
+  --brand-dark: #386641;
+  --gradient: linear-gradient(135deg, #6a994e 0%, #386641 100%);
 
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
+  --shadow-sm: 0 1px 2px rgba(31, 43, 29, 0.06);
+  --shadow-md: 0 6px 18px rgba(31, 43, 29, 0.08);
+  --shadow-lg: 0 20px 50px rgba(31, 43, 29, 0.12);
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -77,21 +78,22 @@
 
 /* Dark theme */
 [data-theme="dark"] {
-  --bg: #0b0f1a;
-  --bg-alt: #0f1524;
-  --surface: #131a2b;
-  --surface-2: #1a2338;
-  --text: #e6ecf5;
-  --text-muted: #9aa8bd;
-  --border: #22304a;
+  --bg: #131a12;
+  --bg-alt: #182017;
+  --surface: #1e281c;
+  --surface-2: #263224;
+  --text: #f2e8cf;
+  --text-muted: #b4b09a;
+  --border: #33412f;
 
-  --primary: #60a5fa;
-  --primary-hover: #93c5fd;
-  --primary-soft: rgba(96, 165, 250, 0.14);
-  --primary-rgb: 96, 165, 250;
-  --accent: #22d3ee;
-  --danger: #f87171;
-  --success: #34d399;
+  --primary: #a7c957;
+  --primary-hover: #bcd87a;
+  --primary-soft: rgba(167, 201, 87, 0.14);
+  --primary-rgb: 167, 201, 87;
+  --on-primary: #131a12;
+  --accent: #6a994e;
+  --danger: #e07a7b;
+  --success: #a7c957;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
@@ -146,7 +148,7 @@ h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); }
 h3 { font-size: 1.25rem; }
 html[dir="rtl"] h1, html[dir="rtl"] h2 { line-height: 1.4; }
 
-::selection { background: var(--primary); color: #fff; }
+::selection { background: var(--primary); color: var(--on-primary); }
 
 /* Visible keyboard focus everywhere */
 :focus-visible {
@@ -197,6 +199,7 @@ html[dir="rtl"] h1, html[dir="rtl"] h2 { line-height: 1.4; }
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+[data-theme="dark"] .gradient-text { background-image: linear-gradient(135deg, #a7c957 0%, #6a994e 100%); }
 
 /* ==========================================================================
    4. BUTTONS
@@ -220,11 +223,11 @@ html[dir="rtl"] h1, html[dir="rtl"] h2 { line-height: 1.4; }
 .btn-primary {
   background: var(--gradient);
   color: #fff;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 24px rgba(56, 102, 65, 0.3);
 }
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.42);
+  box-shadow: 0 12px 30px rgba(56, 102, 65, 0.42);
 }
 
 .btn-ghost {
@@ -237,7 +240,7 @@ html[dir="rtl"] h1, html[dir="rtl"] h2 { line-height: 1.4; }
 /* White button for use on gradient backgrounds (CTA) */
 .btn-light {
   background: #fff;
-  color: #1d4ed8;
+  color: #386641;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 .btn-light:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28); }
@@ -274,7 +277,7 @@ html[dir="rtl"] #langLabel { font-family: var(--font-en); }
   z-index: 200;
   padding: var(--space-2) var(--space-4);
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   border-radius: var(--radius-sm);
   font-weight: 600;
   transition: top var(--transition);
@@ -318,7 +321,7 @@ html[dir="rtl"] #langLabel { font-family: var(--font-en); }
   height: 36px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(30, 107, 224, 0.3);
+  box-shadow: 0 4px 12px rgba(31, 43, 29, 0.25);
 }
 .logo-text span { color: var(--primary); }
 
@@ -376,12 +379,12 @@ html[dir="rtl"] #langLabel { font-family: var(--font-en); }
 }
 .blob-1 {
   width: 500px; height: 500px;
-  background: var(--brand-cyan);
+  background: var(--brand-light);
   top: -150px; inset-inline-start: -100px;
 }
 .blob-2 {
   width: 400px; height: 400px;
-  background: var(--brand-blue);
+  background: var(--brand-dark);
   bottom: -100px; inset-inline-end: -80px;
 }
 [data-theme="dark"] .blob { opacity: 0.28; }
@@ -480,7 +483,7 @@ html[dir="rtl"] #langLabel { font-family: var(--font-en); }
   margin-bottom: 6px;
 }
 .code-line.indent { padding-inline-start: 20px; color: var(--text); font-weight: 600; }
-.tag  { color: #e06c75; }
+.tag  { color: #bc4749; }
 .attr { color: #d19a66; }
 .str  { color: #50a14f; }
 [data-theme="dark"] .attr { color: #e5c07b; }
@@ -604,9 +607,9 @@ html[dir="rtl"] #langLabel { font-family: var(--font-en); }
   font-size: 3rem;
   color: #fff;
 }
-.thumb-1 { background: linear-gradient(135deg, #06b6d4, #2563eb); }
-.thumb-2 { background: linear-gradient(135deg, #10b981, #0ea5e9); }
-.thumb-3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.thumb-1 { background: linear-gradient(135deg, #6a994e, #386641); }
+.thumb-2 { background: linear-gradient(135deg, #a7c957, #6a994e); }
+.thumb-3 { background: linear-gradient(135deg, #d0686a, #bc4749); }
 .project-body { padding: var(--space-5); }
 .project-body h3 { margin: var(--space-3) 0 var(--space-2); }
 .project-body p { color: var(--text-muted); font-size: 0.9rem; }
@@ -704,7 +707,7 @@ html[dir="rtl"] .form-group input[type="email"]::placeholder { text-align: right
 .form-group input[aria-invalid="true"],
 .form-group textarea[aria-invalid="true"] { border-color: var(--danger); }
 .form-group input[aria-invalid="true"]:focus,
-.form-group textarea[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15); }
+.form-group textarea[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px rgba(188, 71, 73, 0.15); }
 
 .field-error { color: var(--danger); font-size: 0.82rem; min-height: 1em; }
 .field-error:empty { display: none; }

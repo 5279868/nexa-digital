@@ -212,7 +212,7 @@ const Theme = (() => {
     btn?.setAttribute("aria-pressed", String(theme === "dark"));
     // Keep the browser UI (mobile address bar) in sync with the chosen theme
     $$('meta[name="theme-color"]').forEach((m) => {
-      m.setAttribute("content", theme === "dark" ? "#0b0f1a" : "#ffffff");
+      m.setAttribute("content", theme === "dark" ? "#131a12" : "#fdfaf3");
       m.removeAttribute("media");
     });
     if (persist) store.set(STORAGE.theme, theme);
